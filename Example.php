@@ -46,6 +46,3 @@ echo $api->api();
 
 $api=NEW YT2MAPI($youtube_id,'mp3','link');
 echo $api->api();
-
-
-
