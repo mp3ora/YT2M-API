@@ -7,43 +7,45 @@
 /*
 *  Required Veriables
 */
-$error=null;
-$api_server='https://yt2m.pro/api/?';
-$type=array();
-$id='';
-$type='';
+include_once('api/yt2m_api.php');
+$youtube='youtube_id';
 
-if (isset($_GET['id']) && $_GET['id']!='' && isset($_GET['type']) &&  $_GET['type']!=''){
-        $id=$_GET['id'];
-        $type=$_GET['type'];
-        
-       if ($_GET['type']=='js'){
-           $get_data=array('id'=>$id,'type'=>$type);     
-       } elseif ($_GET['type']=='iframe'){
-           $get_data=array('id'=>$id,'type'=>$type); 
-       } elseif ($_GET['type']=='link') {
-           $get_data=array('id'=>$id,'type'=>$type); 
-       } else {
-           $error.='Invalid <b>Type</b><br>';
-       }
-       
-       if (!isset($error) && $error==''){
-           $query=http_build_query($get_data);
-           $jsonData = file_get_contents($api_server.$query);
-           if (isset($jsonData)){
-           $response = json_decode($jsonData,TRUE);
-           if (isset($response['api'])){
-           $result=$response['api'];    
-           echo $result;
-           } else {
-               $error.='Unable to Retrive API data!<br>';
-           }
-           } else {
-               $error.='Unable to connect API server!<br>';
-           }
-           
-       }
-} else {
-    $error.='Youtube ID or Type not selected!<br>';
-}
-echo $error;
+
+
+/* Mp4 with iFrame */
+
+$api=NEW YT2MAPI($youtube_id,'mp4','iframe');
+echo $api->api();                     
+
+
+/* Mp4 with JS */
+
+$api=NEW YT2MAPI($youtube_id,'mp4','js');
+echo $api->api();
+
+
+/* Mp4 with Link (hyperlink) */
+
+$api=NEW YT2MAPI($youtube_id,'mp4','link');
+echo $api->api();
+
+
+/* Mp3 with iFrame */
+
+$api=NEW YT2MAPI($youtube_id,'mp3','iframe');
+echo $api->api();                     
+
+
+/* Mp3 with JS */
+
+$api=NEW YT2MAPI($youtube_id,'mp3','js');
+echo $api->api();
+
+
+/* Mp3 with Link (hyperlink) */
+
+$api=NEW YT2MAPI($youtube_id,'mp3','link');
+echo $api->api();
+
+
+
