@@ -7,7 +7,7 @@
 /*
 *  Required Veriables
 */
-include_once('api/yt2m_api.php');
+include_once('yt2m_api.php');
 $youtube='youtube_id';
 
 
