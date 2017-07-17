@@ -11,8 +11,11 @@ echo $api->api();
 In `NEW YT2MAPI($para1,$para2,$para3);`
 
 `$para1` always Youtube ID
+
 `$para2` default `mp3` - available `mp4 | mp3`
+
 `$para3` default 'iframe' - available `iframe | js | link`
+
 
 
 # MP3 Converter API Code:
