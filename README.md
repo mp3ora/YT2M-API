@@ -3,7 +3,7 @@
 # PHP API Method
 
 ```
-include_once('api/yt2m_api.php');
+include_once('yt2m_api.php');
 $api=NEW YT2MAPI('youtube_id','mp3','iframe');
 echo $api->api();
 ```
