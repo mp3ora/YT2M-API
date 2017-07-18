@@ -3,13 +3,11 @@ class YT2MAPI
 {
     public $type;
     public $format;
-    public $id;                  // the x coordinate of this Point.
-    public $url_gen=array();                  // the x coordinate of this Point.
-    public $api_server='https://yt2m.pro/api/?';
+    public $id;                  // the id for Youtube Video Id
+    public $url_gen=array();                  
+    public $api_server='https://yt2m.pro/api/?'; // Link to YT2M API URL
 
-    /*
-     * use the x and y variables inherited from Point.php.
-     */
+  
     public function __construct($id, $format='mp3', $type='iframe')
     {
         if (isset($id)){
@@ -19,9 +17,6 @@ class YT2MAPI
         $this->type = $type;
     }
 
-    /*
-     * the (String) representation of this Point as "Point3D(x, y, z)".
-     */
     public function api()
     {
         if (isset($this->id) || isset($this->id)!=''){
